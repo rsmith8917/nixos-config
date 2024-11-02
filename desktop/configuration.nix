@@ -1,33 +1,42 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../shared/configuration
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../shared/configuration
+  ];
 
   networking.hostName = "desktop";
-  networking.extraHosts =
-    ''
-      192.168.1.247 server
-    '';
+  networking.extraHosts = ''
+    192.168.1.247 server
+    192.168.1.59  nas
+    192.168.1.60  node0
+    192.168.1.61  node1
+    192.168.1.62  node2
+  '';
 
   users.users.robert = {
     isNormalUser = true;
     description = "Robert Smith";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [ ];
   };
 
   services.getty.autologinUser = "robert";
 
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
+    kubectl
     firefox
     steam
   ];
@@ -57,7 +66,12 @@
     desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
     displayManager.gdm.wayland = false;
-    resolutions = [{ x = 3840; y = 2160; }];
+    resolutions = [
+      {
+        x = 3840;
+        y = 2160;
+      }
+    ];
     xkb = {
       layout = "us";
       variant = "";
