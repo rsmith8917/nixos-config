@@ -3,5 +3,8 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ deluge ];
+  home.packages = with pkgs; [
+    deluge
+    handbrake
+  ];
 }
