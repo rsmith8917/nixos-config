@@ -11,6 +11,7 @@
     ./lsp.nix
     ./cmp.nix
     ./conform.nix
+    ./lazygit.nix
     ./keymaps.nix
     ./settings.nix
   ];
