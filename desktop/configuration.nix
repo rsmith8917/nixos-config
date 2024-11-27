@@ -67,7 +67,6 @@
     enable = true;
     ensureDatabases = [ "postgres" ];
     enableTCPIP = true;
-    port = 5432;
     authentication = pkgs.lib.mkOverride 10 ''
       #...
       #type database DBuser origin-address auth-method
