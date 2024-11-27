@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./colorschemes.nix
+    ./colorschemes/catppuccin.nix
     ./telescope.nix
     ./lualine.nix
     ./bufferline.nix
