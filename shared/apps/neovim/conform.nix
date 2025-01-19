@@ -1,78 +1,106 @@
-{ lib, pkgs, ... }:
 {
-  programs.nixvim.plugins.conform-nvim = {
-    enable = true;
-    formatOnSave = {
-      lspFallback = true;
-      timeoutMs = 200;
-    };
+  lib,
+  pkgs,
+  ...
+}:
+{
+  config = {
+    programs.nixvim.plugins.conform-nvim = {
+      enable = true;
+      settings = {
+        format_on_save = {
+          lsp_fallback = "fallback";
+          timeout_ms = 1000;
+        };
 
-    formatAfterSave = {
-      lspFallback = true;
-    };
-    notifyOnError = true;
-    formattersByFt = {
-      html = [
-        [
-          "prettierd"
-          "prettier"
-        ]
-      ];
-      css = [
-        [
-          "prettierd"
-          "prettier"
-        ]
-      ];
-      javascript = [
-        [
-          "prettierd"
-          "prettier"
-        ]
-      ];
-      typescript = [
-        [
-          "prettierd"
-          "prettier"
-        ]
-      ];
-      javascriptreact = [
-        [
-          "prettierd"
-          "prettier"
-        ]
-      ];
-      typescriptreact = [
-        [
-          "prettierd"
-          "prettier"
-        ]
-      ];
-      nix = [ "nixfmt-rfc-style" ];
-      markdown = [
-        [
-          "prettierd"
-          "prettier"
-        ]
-      ];
-      yaml = [
-        [
-          "prettierd"
-          "prettier"
-        ]
-      ];
-      json = [ "jq" ];
-    };
+        notify_on_error = true;
+        formatters_by_ft = {
+          html = {
+            __unkeyed-1 = "prettierd";
+            __unkeyed-2 = "prettier";
+            stop_after_first = true;
+          };
+          css = {
+            __unkeyed-1 = "prettierd";
+            __unkeyed-2 = "prettier";
+            stop_after_first = true;
+          };
+          javascript = {
+            __unkeyed-1 = "prettierd";
+            __unkeyed-2 = "prettier";
+            stop_after_first = true;
+          };
+          typescript = {
+            __unkeyed-1 = "prettierd";
+            __unkeyed-2 = "prettier";
+            stop_after_first = true;
+          };
+          python = [
+            "black"
+            "isort"
+          ];
+          go = [ "golines" ];
+          lua = [ "stylua" ];
+          nix = [ "nixfmt-rfc-style" ];
+          markdown = {
+            __unkeyed-1 = "prettierd";
+            __unkeyed-2 = "prettier";
+            stop_after_first = true;
+          };
+          yaml = {
+            __unkeyed-1 = "prettierd";
+            __unkeyed-2 = "prettier";
+            stop_after_first = true;
+          };
+          terraform = [ "terraform_fmt" ];
+          bicep = [ "bicep" ];
+          bash = [
+            "shellcheck"
+            "shellharden"
+            "shfmt"
+          ];
+          json = [ "jq" ];
+          "_" = [ "trim_whitespace" ];
+        };
 
-    formatters = {
-      nixfmt-rfc-style = {
-        command = "${lib.getExe pkgs.nixfmt-rfc-style}";
-      };
-      jq = {
-        command = "${lib.getExe pkgs.jq}";
-      };
-      prettierd = {
-        command = "${lib.getExe pkgs.prettierd}";
+        formatters = {
+          black = {
+            command = "${lib.getExe pkgs.black}";
+          };
+          isort = {
+            command = "${lib.getExe pkgs.isort}";
+          };
+          nixfmt-rfc-style = {
+            command = "${lib.getExe pkgs.nixfmt-rfc-style}";
+          };
+          alejandra = {
+            command = "${lib.getExe pkgs.alejandra}";
+          };
+          jq = {
+            command = "${lib.getExe pkgs.jq}";
+          };
+          prettierd = {
+            command = "${lib.getExe pkgs.prettierd}";
+          };
+          stylua = {
+            command = "${lib.getExe pkgs.stylua}";
+          };
+          shellcheck = {
+            command = "${lib.getExe pkgs.shellcheck}";
+          };
+          shfmt = {
+            command = "${lib.getExe pkgs.shfmt}";
+          };
+          shellharden = {
+            command = "${lib.getExe pkgs.shellharden}";
+          };
+          bicep = {
+            command = "${lib.getExe pkgs.bicep}";
+          };
+          #yamlfmt = {
+          #  command = "${lib.getExe pkgs.yamlfmt}";
+          #};
+        };
       };
     };
   };

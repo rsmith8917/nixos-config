@@ -15,6 +15,12 @@
           desc = "Find git files";
         };
       };
+      "<leader>fb" = {
+        action = "buffers";
+        options = {
+          desc = "+buffer";
+        };
+      };
     };
   };
 }

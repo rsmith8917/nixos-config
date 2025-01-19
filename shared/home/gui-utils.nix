@@ -8,5 +8,6 @@
     inkscape
     vlc
     zoom-us
+    audacity
   ];
 }

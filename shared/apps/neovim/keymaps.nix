@@ -48,6 +48,27 @@
         key = "<leader>nf";
         action = "<cmd>enew<cr>";
       }
+
+      # Focus Left Window (File Explorer)
+      {
+        mode = "n";
+        key = "<leader>h";
+        action = "<C-w>h";
+        options = {
+          desc = "Focus Left Window (File Explorer)";
+          remap = true;
+        };
+      }
+      # Focus Right Window (Code Editor)
+      {
+        mode = "n";
+        key = "<leader>l";
+        action = "<C-w>l";
+        options = {
+          desc = "Focus Right Window (Code Editor)";
+          remap = true;
+        };
+      }
     ];
   };
 }

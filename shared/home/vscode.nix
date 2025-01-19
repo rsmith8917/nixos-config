@@ -3,9 +3,7 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    vscode
-  ];
+  home.packages = with pkgs; [ vscode ];
 
   programs.vscode = {
     enable = true;
@@ -15,6 +13,7 @@
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
       ms-vscode-remote.remote-ssh
+      ms-vscode-remote.remote-containers
       jnoortheen.nix-ide
       arrterian.nix-env-selector
       esbenp.prettier-vscode
@@ -46,6 +45,3 @@
     };
   };
 }
-
-
-

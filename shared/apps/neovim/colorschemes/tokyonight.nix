@@ -2,6 +2,6 @@
 {
   programs.nixvim.colorschemes.tokyonight = {
     enable = true;
-    settings.style = "night";
+    settings.style = "storm"; # "moon", "storm", "night", "day"
   };
 }
