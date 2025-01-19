@@ -21,8 +21,9 @@
       nixpkgs,
       home-manager,
       nixvim,
+      ghostty,
       ...
-    }@inputs:
+    }:
     {
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -38,6 +39,11 @@
           }
           nixvim.nixosModules.nixvim
           { imports = [ ./shared/apps/neovim ]; }
+          {
+            environment.systemPackages = [
+              ghostty.packages.x86_64-linux.default
+            ];
+          }
         ];
       };
       nixosConfigurations.server = nixpkgs.lib.nixosSystem {
