@@ -4,27 +4,31 @@
 
 {
   home.packages = with pkgs; [ zellij ];
-
+  home.file = {
+    ".config/zellij/layouts".source = ./zellij-layouts;
+  };
   programs.zellij = {
     enable = true;
     settings = {
-      theme = "tokyo-night";
+      theme = "carbon";
       themes = {
-        tokyo-night = {
-          fg = "#A9B1D6";
-          bg = "#1A1B26";
-          black = "#383E5A";
-          red = "#F93357";
-          green = "#9ECE6A";
-          yellow = "#E0AF68";
-          blue = "#7AA2F7";
-          magenta = "#BB9AF7";
-          cyan = "#2AC3DE";
-          white = "#C0CAF5";
-          orange = "#FF9E64";
+        carbon = {
+          fg = "#dcdee3";
+          bg = "#161616";
+          black = "#282828";
+          red = "#EE5396";
+          green = "#78A9FF";
+          yellow = "#08BDBA";
+          blue = "#25be6a";
+          magenta = "#BE95FF";
+          cyan = "#33B1FF";
+          white = "#dfdfe0";
+          orange = "#3DDBD9";
         };
       };
       pane_frames = false;
+      layout_dir = "/home/rsmith/.config/zellij/layouts";
+      default_layout = "minimal";
       keybinds = {
         normal = {
           "bind \"Alt h\" \"Alt Left\"" = {
