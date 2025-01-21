@@ -27,7 +27,7 @@
         };
       };
       pane_frames = false;
-      layout_dir = "/home/rsmith/.config/zellij/layouts";
+      layout_dir = "/home/robert/.config/zellij/layouts";
       default_layout = "minimal";
       keybinds = {
         normal = {
