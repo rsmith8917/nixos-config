@@ -25,5 +25,15 @@
     nixpkgs-fmt
     nixfmt-rfc-style
     prettierd
+    go
+    ffmpeg
+    opentofu
+    kind
+    k9s
+    fluxcd
+    kubernetes-helm
+    helm-ls
+    kustomize
+    nfs-utils
   ];
 }

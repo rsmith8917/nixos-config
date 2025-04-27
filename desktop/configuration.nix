@@ -14,6 +14,7 @@
     192.168.1.60  node0
     192.168.1.61  node1
     192.168.1.62  node2
+    192.168.1.63  gpu0
     192.168.1.254 dell
   '';
 
@@ -83,6 +84,7 @@
     open = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
   # Desktop Environment
   services.xserver = {
     enable = true;
@@ -106,5 +108,7 @@
 
   virtualisation.docker = {
     enable = true;
+    enableOnBoot = true;
+    enableNvidia = true;
   };
 }
